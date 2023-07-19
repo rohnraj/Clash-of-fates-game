@@ -318,6 +318,7 @@ function App() {
                     <Checkbox
                       onChange={() => setWebcamVisibility((prevValue) => !prevValue)}
                       size="sm"
+                      style={window.innerWidth < 520 ? { fontSize: '.7rem' } : null}
                       sx={{
                         color: '#d7d7d7',
                         '&:hover': { color: '#151515' }, textTransform: 'uppercase', fontWeight: '700'
@@ -340,6 +341,7 @@ function App() {
                         },
                       },
                     }}
+                    style={window.innerWidth < 520 ? { fontSize: '.7rem' } : null}
                     sx={{
                       bgcolor: '#151515',
                       color: '#d7d7d7',
