@@ -274,84 +274,89 @@ function App() {
         <div className="left-container">
           {/* Score Board */}
           <div className="score-board">
-            <h2 className="score-heading">Score</h2>
-            <hr className="score-hr" />
-            <ul className="score-content">
-              <li>
-                Player:
-                <span>{playerScore ? playerScore : 0}</span>
-              </li>
-              <li>
-                CPU:
-                <span>{cpuScore ? cpuScore : 0}</span>
-              </li>
-              <br />
-              <li style={{ justifyContent: 'center', marginTop: '20px' }}>
-                <span>{message}</span>
-              </li>
-            </ul>
+            <div className="heading-container">
+              <h2 className="score-heading">Score</h2>
+              <hr className="score-hr" />
+            </div>
+            <div className="score-content-container">
 
-            <div className="left-controls">
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  gap: 2,
-                  width: '100%',
-                  justifyContent: 'center',
-                  '& > div': { p: '10px', borderRadius: 'xs', display: 'flex' },
-                }}
-              >
-                <Sheet variant="outlined"
+              <ul className="score-content">
+                <li>
+                  Player:
+                  <span>{playerScore ? playerScore : 0}</span>
+                </li>
+                <li>
+                  CPU:
+                  <span>{cpuScore ? cpuScore : 0}</span>
+                </li>
+                <br />
+                <li className="msg-container-lg" style={{ justifyContent: 'center', marginTop: '20px' }}>
+                  <span>{message}</span>
+                </li>
+              </ul>
+
+              <div className="left-controls">
+                <Box
                   sx={{
-                    bgcolor: '#151515',
-                    border: '1px solid #d7d7d7',
-                    '&:hover': {
-                      bgcolor: '#d7d7d7',
-                      border: '1px solid #151515',
-                    }
-                  }}>
-                  <Checkbox
-                    onChange={() => setWebcamVisibility((prevValue) => !prevValue)}
-                    size="sm"
-                    sx={{
-                      color: '#d7d7d7',
-                      '&:hover': { color: '#151515' }, textTransform: 'uppercase', fontWeight: '700'
-                    }} overlay label="Video" />
-                </Sheet>
-
-                <Select onChange={(elm) => {
-                  setTotalRounds(Number(String(elm.target.innerHTML).match(/\b\d{1,2}\b/g)));
-                  setRoundSelectedValue(elm.target.innerHTML)
-                }}
-                  size="sm"
-                  disabled={startGame ? true : false}
-                  slotProps={{
-                    listbox: {
-                      placement: 'top',
-                      sx: {
-                        '&>li': { m: '1px 0px' },
-                        '&>li[aria-selected="true"]': { bgcolor: '#151515', color: '#d7d7d7' },
-                        '&>li:hover': { bgcolor: '#151515', color: '#d7d7d7' },
-                      },
-                    },
+                    display: 'flex',
+                    flexDirection: window.innerWidth < 520 ? 'column' : 'row',
+                    gap: 2,
+                    width: '100%',
+                    justifyContent: 'center',
+                    '& > div': { p: '10px', borderRadius: 'xs', display: 'flex' },
                   }}
-                  sx={{
-                    bgcolor: '#151515',
-                    color: '#d7d7d7',
-                    border: '1px solid #d7d7d7',
-                    '&>button': { fontWeight: '700', textTransform: 'uppercase' },
-                    '&:hover': { bgcolor: '#d7d7d7', border: '1px solid #151515' },
-                    '&:hover>span': { color: '#151515' },
-                    '&>span': { color: '#d7d7d7' },
-                  }} defaultValue={roundSelectedValue}>
-                  <Option value="3 Round">3 Round</Option>
-                  <Option value="5 Round">5 Round</Option>
-                  <Option value="10 Round">10 Round</Option>
-                </Select>
+                >
+                  <Sheet variant="outlined"
+                    sx={{
+                      bgcolor: '#151515',
+                      border: '1px solid #d7d7d7',
+                      '&:hover': {
+                        bgcolor: '#d7d7d7',
+                        border: '1px solid #151515',
+                      }
+                    }}>
+                    <Checkbox
+                      onChange={() => setWebcamVisibility((prevValue) => !prevValue)}
+                      size="sm"
+                      sx={{
+                        color: '#d7d7d7',
+                        '&:hover': { color: '#151515' }, textTransform: 'uppercase', fontWeight: '700'
+                      }} overlay label="Video" />
+                  </Sheet>
+
+                  <Select onChange={(elm) => {
+                    setTotalRounds(Number(String(elm.target.innerHTML).match(/\b\d{1,2}\b/g)));
+                    setRoundSelectedValue(elm.target.innerHTML)
+                  }}
+                    size="sm"
+                    disabled={startGame ? true : false}
+                    slotProps={{
+                      listbox: {
+                        placement: 'top',
+                        sx: {
+                          '&>li': { m: '1px 0px' },
+                          '&>li[aria-selected="true"]': { bgcolor: '#151515', color: '#d7d7d7' },
+                          '&>li:hover': { bgcolor: '#151515', color: '#d7d7d7' },
+                        },
+                      },
+                    }}
+                    sx={{
+                      bgcolor: '#151515',
+                      color: '#d7d7d7',
+                      border: '1px solid #d7d7d7',
+                      '&>button': { fontWeight: '700', textTransform: 'uppercase' },
+                      '&:hover': { bgcolor: '#d7d7d7', border: '1px solid #151515' },
+                      '&:hover>span': { color: '#151515' },
+                      '&>span': { color: '#d7d7d7' },
+                    }} defaultValue={roundSelectedValue}>
+                    <Option value="3 Round">3 Round</Option>
+                    <Option value="5 Round">5 Round</Option>
+                    <Option value="10 Round">10 Round</Option>
+                  </Select>
 
 
-              </Box>
+                </Box>
+              </div>
             </div>
           </div>
 
@@ -401,6 +406,8 @@ function App() {
               <span>PLAYER</span>
             </div>
           </div>
+
+          <div className="msg-container-sm">{message}</div>
 
           <div className="game-controls">
             <button ref={startBtn} onClick={(elm) => {

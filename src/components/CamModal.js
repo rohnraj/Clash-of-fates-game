@@ -31,7 +31,7 @@ export default function CamModal(props) {
                     </Typography>
                     <Divider />
                     <br />
-                    <Typography textColor="text.secondary">
+                    <Typography component="div" textColor="text.secondary">
                         <Typography component="h3">
                             It may be happening because of the following reasons:
                         </Typography>
