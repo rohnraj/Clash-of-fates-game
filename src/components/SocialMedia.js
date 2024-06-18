@@ -8,9 +8,9 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ShareIcon from '@mui/icons-material/Share';
 
 const actions = [
-    { icon: <InstagramIcon />, name: 'Instagram', url: 'https://www.instagram.com/urstrulysatyam_/' },
-    { icon: <GitHubIcon />, name: 'GitHub', url: 'https://github.com/SatyamNagar/' },
-    { icon: <LinkedInIcon />, name: 'LinkedIn', url: 'https://www.linkedin.com/in/satyamnagar/' },
+    // { icon: <InstagramIcon />, name: 'Instagram', url: 'https://www.instagram.com/rohnxx/' },
+    { icon: <GitHubIcon />, name: 'GitHub', url: 'https://github.com/rohnraj/' },
+    { icon: <LinkedInIcon />, name: 'LinkedIn', url: 'https://www.linkedin.com/in/rohan-raj-54a1601ab/' },
 ];
 
 export default function SocialMedia() {

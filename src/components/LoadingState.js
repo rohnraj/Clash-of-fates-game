@@ -6,7 +6,7 @@ export default function LoadingState() {
     return (
         <div className='loading-body'>
             <div className="smart-glass">
-                <h2 className='loading-title'>ROCK PAPER SCISSORS</h2>
+                <h2 className='loading-title'>Clash of Fates</h2>
                 <br />
                 <div className="logo">
                     <div className="circle">
